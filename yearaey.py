@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 __author__ = 'ArchieT'
 
-#Wiadomość o zadaniu przeczytano o godzinie 23:20 2014-01-22, pracę rozpoczęto 23:22
 '''*** Zadanie ***
 Rok 2015 zapisany binarnie 11111011111 jest tak zwanym
 palindromem (http://pl.wikipedia.org/wiki/Palindrom), tzn. wyrażeniem brzmiącym tak samo
@@ -23,16 +22,29 @@ bulijan = {}
 
 for i in range(sy,ey+1):
 	print i
-	fo = fs.format(i)
-	print fo
+	fos = fs.format(i)
+	fo = list(fos)
+	print fos
 	lfo = len(fo)
 	plwni = float(lfo)/float(2)
 	if plwni.is_integer():
-		polowa = fo[int(lfo-plwni):]
-		polowb = fo[:int(lfo-plwni)]
+		#polowa = fo[int(lfo-plwni):]
+		polowa = []
+		for i in range(0,int(plwni)):
+			polowa.append(fo[i])
+		#polowb = fo[:int(lfo-plwni)]
+		polowb = []
+		for i in range(int(plwni),lfo):
+			polowa.append(fo[i])
 	elif (plwni-0.5).is_integer():
-		polowa = fo[int(lfo-(plwni)):]
-		polowb = fo[:int(lfo-(plwni))]
+		#polowa = fo[int(lfo-(plwni)):]
+		polowa = []
+		for i in range(0,int(plwni-0.5)):
+			polowa.append(fo[i])
+		#polowb = fo[:int(lfo-(plwni))]
+		polowb = []
+		for i in range(lfo-1,int(plwni+1.5),-1):
+			polowa.append(fo[i])
 	else:
 		raise ValueError
 	if polowa == polowb:
