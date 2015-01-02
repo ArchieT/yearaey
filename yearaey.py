@@ -50,10 +50,10 @@ for i in range(sy,ey+1):
 	if polowa == polowb:
 		bulijan[i] = True
 		tecosa.append(i)
-		print polowa, polowb, True
+		print polowa, polowb, True, plwni
 	else:
 		bulijan[i] = False
-		print polowa, polowb, False
+		print polowa, polowb, False, plwni
 print tecosa
 print bulijan
 
