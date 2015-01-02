@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 __author__ = 'ArchieT'
 
-'''*** Zadanie ***
+'''
+*** Zadanie ***
 Rok 2015 zapisany binarnie 11111011111 jest tak zwanym
 palindromem (http://pl.wikipedia.org/wiki/Palindrom), tzn. wyrażeniem brzmiącym tak samo
 niezależnie czy czytamy je od lewej do prawej czy od prawej do lewej.
