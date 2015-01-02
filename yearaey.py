@@ -10,7 +10,7 @@ niezależnie czy czytamy je od lewej do prawej czy od prawej do lewej.
 Napisz program (w dowolnym języku programowania) który znajdzie wszystkie takie lata
 (tzn. ich zapis binarny jest palindromem) od 2015 do 3015.'''
 
-#config:
+# config:
 printingtrue = True
 printingfalse = False
 sy = 2015
