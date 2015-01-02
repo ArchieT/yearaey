@@ -16,44 +16,8 @@ printingfalse = False
 sy = 2015
 ey = 3015
 
-fs = "{0:b}"
-tecosa = []
-bulijan = {}
 
-for i in range(sy,ey+1):
-	print i
-	fos = fs.format(i)
-	fo = list(fos)
-	print fos
-	lfo = len(fo)
-	plwni = float(lfo)/float(2)
-	if plwni.is_integer():
-		#polowa = fo[int(lfo-plwni):]
-		polowa = []
-		for i in range(0,int(plwni)):
-			polowa.append(fo[i])
-		#polowb = fo[:int(lfo-plwni)]
-		polowb = []
-		for i in range(int(plwni),lfo):
-			polowa.append(fo[i])
-	elif (plwni-0.5).is_integer():
-		#polowa = fo[int(lfo-(plwni)):]
-		polowa = []
-		for i in range(0,int(plwni-0.5)):
-			polowa.append(fo[i])
-		#polowb = fo[:int(lfo-(plwni))]
-		polowb = []
-		for i in range(lfo-1,int(plwni+1.5),-1):
-			polowa.append(fo[i])
-	else:
-		raise ValueError
-	if polowa == polowb:
-		bulijan[i] = True
-		tecosa.append(i)
-		print polowa, polowb, True, plwni
-	else:
-		bulijan[i] = False
-		print polowa, polowb, False, plwni
+
 print tecosa
 print bulijan
 
