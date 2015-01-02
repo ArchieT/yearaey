@@ -22,20 +22,26 @@ tecosa = []
 bulijan = {}
 
 for i in range(sy,ey+1):
+	print i
 	fo = fs.format(i)
+	print fo
 	lfo = len(fo)
 	plwni = float(lfo)/float(2)
 	if plwni.is_integer():
-		polowa = fo[(lfo-plwni):]
-		polowb = fo[:(lfo-plwni)]
+		polowa = fo[int(lfo-plwni):]
+		polowb = fo[:int(lfo-plwni)]
 	elif (plwni-0.5).is_integer():
-		polowa = fo[(lfo-(plwni)):]
-		polowb = fo[:(lfo-(plwni))]
+		polowa = fo[int(lfo-(plwni)):]
+		polowb = fo[:int(lfo-(plwni))]
 	else:
 		raise ValueError
 	if polowa == polowb:
 		bulijan[i] = True
 		tecosa.append(i)
+		print polowa, polowb, True
 	else:
 		bulijan[i] = False
+		print polowa, polowb, False
+print tecosa
+print bulijan
 
