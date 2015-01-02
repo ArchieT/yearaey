@@ -2,12 +2,14 @@
 __author__ = 'ArchieT'
 class chksngl:
 	def __init__(self,yr):
+		fs = "{0:b}"
 		self.yr = yr
 		fos = fs.format(i)
 		fo = list(fos)
 		print fos
 		lfo = len(fo)
 		plwni = float(lfo)/float(2)
+		self.plwni = plwni
 		if plwni.is_integer():
 			#polowa = fo[int(lfo-plwni):]
 			polowa = []

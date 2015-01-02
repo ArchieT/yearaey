@@ -5,13 +5,15 @@ class chkrng:
 		if not (isinstance(sy,int) and isinstance(ey,int)):
 			raise ValueError
 	def checkem(self):
-		self.sy = sy
-		self.ey = ey
-		fs = "{0:b}"
+		sy = self.sy
+		ey = self.ey
+
 		bulijan = {}
 
 		from ownlib.chksngl import chksngl
 		for i in range(sy,ey+1):
 			print i
 			c = chksngl(i)
-			bulijan[i] = c.isit()
+			b = c.isit()
+			bulijan[i] = b
+			print c.polowy(), b, c.plwni()
