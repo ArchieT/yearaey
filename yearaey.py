@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 __author__ = 'ArchieT'
 
+# Program jest rozwiązaniem poniższego szkolnego zadania domowego.
+# Napisano (większość) (rozpoczęto) w nocy z 2 na 3 stycznia 2015 roku.
+
 '''
 *** Zadanie ***
 Rok 2015 zapisany binarnie 11111011111 jest tak zwanym
@@ -13,14 +16,14 @@ Napisz program (w dowolnym języku programowania) który znajdzie wszystkie taki
 '''
 
 # config:
-defsy = 2015
-defey = 3015
-defspos = "bruteforcebyreversing"
+defsy = 2015  # default starting number
+defey = 3015  # default ending number
+defspos = "bruteforcebyreversing"  # default algorithm
 
 from sys import argv
 import argparse
-argh = argparse.ArgumentParser()
-argh.add_argument('-b','--baseposnumsys',type=int,choices=range(2,37),default=2,help="Choose base positional numeral system (by radix). Default: 2 (binary)")
+argh = argparse.ArgumentParser(add_help="Program for finding palindromes in a specified range in a specified positional numeral system by the radix (from 2 to 36)")
+argh.add_argument('-b','--baseposnumsys',type=int,choices=range(2,37),default=2,help="Choose base positional numeral system (by radix). [min: 2 max: 36] [default: 2 (binary)]")
 argg = argh.add_argument_group('OUTPUT TYPES (you can choose more than one)')
 argg.add_argument('-t','--printingtrue',action='store_true',help="Prints binary palindromes as they are being found")
 argg.add_argument('-f','--printingfalse',action='store_true',help="Prints what is found to not to be a binary palindrome as it is being checked")
