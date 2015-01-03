@@ -16,6 +16,7 @@ Napisz program (w dowolnym języku programowania) który znajdzie wszystkie taki
 defsy = 2015
 defey = 3015
 
+from sys import argv
 import argparse
 argh = argparse.ArgumentParser()
 argg = argh.add_argument_group('OUTPUT types (you can choose more than one)')
@@ -32,7 +33,7 @@ parmetry = vars(argh.parse_args())
 
 if not(parmetry['printingtrue'] or parmetry['printingfalse'] or parmetry['list'] or parmetry['dict']):
 	print "The results won't be displayed."
-	print 'Look for output types in "./yearaey.py --help"'
+	print 'Look for output types in "%s --help"' % argv[0]
 
 sy = parmetry['startyear']
 ey = parmetry['endyear']
