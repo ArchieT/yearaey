@@ -41,7 +41,12 @@ ey = parmetry['endyear']
 
 from ownlib.chkrng import chkrng
 a = chkrng(sy, ey)
-a.checkem(pt=(True if parmetry['printingtrue'] else False),pf=(True if parmetry['printingfalse'] else False),db=(True if parmetry['debug'] else False),wsl=parmetry['binarystringwithspacelength'])
+a.checkem(
+	pt=(True if parmetry['printingtrue'] else False),
+	pf=(True if parmetry['printingfalse'] else False),
+	db=(True if parmetry['debug'] else False),
+	wsl=parmetry['binarystringwithspacelength']
+)
 
 if parmetry['list'] or parmetry['dict']: bulijan = a.outbulijan
 
