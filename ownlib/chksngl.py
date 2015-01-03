@@ -49,4 +49,4 @@ class chksngl:
 				b = a+' '
 			return a+cojest+b
 		binarprint = self.fos if wspaceslen<len(self.fos) else spaporbp(wspaceslen,self.fos)
-		print "%4d  | %s |  %s" % (self.yr,binarprint,self.isit)
+		return "%4d  | %s |  %s" % (self.yr,binarprint,self.isit)

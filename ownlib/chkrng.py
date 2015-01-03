@@ -7,7 +7,7 @@ class chkrng:
 		else:
 			self.sy = sy
 			self.ey = ey
-	def checkem(self,pt=True,pf=False,wsl=14):
+	def checkem(self,pt=True,pf=False,db=False,wsl=14):
 		sy = self.sy
 		ey = self.ey
 
@@ -19,9 +19,9 @@ class chkrng:
 			c = chksngl(i)
 			b = c.isit
 			bulijan[i] = b
-			if pt and b: c.printsingle(wsl)
-			if pf and not b: c.printsingle(wsl)
-			print c.polowy, c.polowyjoined
+			if pt and b and not db: print c.printsingle(wsl)
+			if pf and (not db) and not b: print c.printsingle(wsl)
+			if db: print c.printsingle(wsl), "  ", c.polowyjoined
 
 		self.bulijan = bulijan
 

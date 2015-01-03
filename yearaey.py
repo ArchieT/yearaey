@@ -24,6 +24,7 @@ argg.add_argument('-t','--printingtrue',action='store_true',help="Prints binary 
 argg.add_argument('-f','--printingfalse',action='store_true',help="Prints what is found to not to be a binary palyndrome as it is being checked")
 argg.add_argument('-l','--list',action='store_true',help="At the end, outputs a Python list containing decimal ints which are binary palindromes")
 argg.add_argument('-d','--dict',action='store_true',help="At the end, outputs a Python dict with keys for each checked number and boolean values")
+argg.add_argument('-b','--debug',action='store_true',help="Show how the analysis runs")
 argga = argg.add_argument_group('singleprint parameters (for printingtrue and printingfalse)')
 argga.add_argument('-w','--binarystringwithspacelength',type=int,help="Lenght of the binary string wth spaces (column width)",default=14)
 argj = argh.add_argument_group('INPUT')
@@ -31,7 +32,7 @@ argj.add_argument('-s','--startyear',type=int,help="Start number (inclusively)",
 argj.add_argument('-e','--endyear',type=int,help="End number (inclusively)",default=defey)
 parmetry = vars(argh.parse_args())
 
-if not(parmetry['printingtrue'] or parmetry['printingfalse'] or parmetry['list'] or parmetry['dict']):
+if not(parmetry['printingtrue'] or parmetry['printingfalse'] or parmetry['list'] or parmetry['dict'] or parmetry['debug']):
 	print "The results won't be displayed."
 	print 'Look for output types in "%s --help"' % argv[0]
 
@@ -40,7 +41,7 @@ ey = parmetry['endyear']
 
 from ownlib.chkrng import chkrng
 a = chkrng(sy, ey)
-a.checkem(pt=(True if parmetry['printingtrue'] else False),pf=(True if parmetry['printingfalse'] else False),wsl=parmetry['binarystringwithspacelength'])
+a.checkem(pt=(True if parmetry['printingtrue'] else False),pf=(True if parmetry['printingfalse'] else False),db=(True if parmetry['debug'] else False),wsl=parmetry['binarystringwithspacelength'])
 
 if parmetry['list'] or parmetry['dict']: bulijan = a.outbulijan
 
