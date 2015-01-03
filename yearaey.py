@@ -3,7 +3,10 @@
 __author__ = 'ArchieT'
 
 # Program jest rozwiązaniem poniższego szkolnego zadania domowego.
-# Napisano (większość) (rozpoczęto) w nocy z 2 na 3 stycznia 2015 roku.
+# Napisano (większość) (rozpoczęto) w nocy z 2 na 3 stycznia 2015 roku i tegoż ranka wysłany do nauczyciela.
+
+# This program is a school homework.
+# It was written (mostly) (started) at night Jan 2-3, 2015, and sent to the teacher same morning.
 
 '''
 *** Zadanie ***
