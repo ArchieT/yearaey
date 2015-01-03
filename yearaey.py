@@ -15,7 +15,7 @@ Napisz program (w dowolnym języku programowania) który znajdzie wszystkie taki
 # config:
 defsy = 2015
 defey = 3015
-defspos = "divisibility"
+defspos = "bruteforcebyreversing"
 
 from sys import argv
 import argparse
@@ -33,8 +33,8 @@ argj.add_argument('-s','--startyear',type=int,help="Start number (inclusively)",
 argj.add_argument('-e','--endyear',type=int,help="End number (inclusively)",default=defey)
 argk = argh.add_argument_group('PROCESSING')
 argkk = argk.add_mutually_exclusive_group()
-argkk.add_argument('-z','--bydivisibility',action='store_true',help="[default] Use the divisibility-checking algorithm")
-argkk.add_argument('-r','--bruteforce',action='store_true',help="Use the brute-force algorithm")
+argkk.add_argument('-r','--bruteforcebyreversing',action='store_true',help="[default] Use the brute-force reversing algorithm")
+argkk.add_argument('-p','--bruteforcebyhalves',action='store_true',help="Use the brute-force halving algorithm")
 argkj = argh.add_argument_group('DEBUG OPTIONS')
 argkj.add_argument('-m','--timing',action='store_true',help="Show timing")
 parmetry = vars(argh.parse_args())
@@ -47,7 +47,7 @@ if parmetry['timing']:
 	import time
 	start_time = time.time()
 
-spos = "divisibility" if parmetry['bydivisibility'] else ("bruteforce" if parmetry['bruteforce'] else defspos)
+spos = "bruteforcebyreversing" if parmetry['bruteforcebyreversing'] else ("bruteforcebyhalves" if parmetry['bruteforcebyhalves'] else defspos)
 
 sy = parmetry['startyear']
 ey = parmetry['endyear']

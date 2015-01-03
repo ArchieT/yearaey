@@ -7,7 +7,7 @@ class chkrng:
 		else:
 			self.sy = sy
 			self.ey = ey
-	def checkem(self,pt=True,pf=False,db=False,sposob='divisibility',wsl=14):
+	def checkem(self,pt=True,pf=False,db=False,sposob='bruteforcebyreversing',wsl=14):
 		sy = self.sy
 		ey = self.ey
 

@@ -7,7 +7,7 @@ class chksngl:
 		fs = "{0:b}"
 		fos = fs.format(yr)
 		self.fos = fos
-		if spos=="bruteforce" or db:
+		if spos=="bruteforcebyhalves" or db:
 			#if yr==2991: print qwer # debug: crashing
 			fo = list(fos)
 			#print fos
@@ -40,8 +40,8 @@ class chksngl:
 	def polowyjoined(self): return {'a':''.join(self.polowa),'b':''.join(self.polowb)}
 	@property
 	def isit(self):
-		if (self.spos=="divisibility"): return (True if ((int(self.fos) % 11 == 0) and (self.yr % 3 == 0)) else False)
-		elif (self.spos=="bruteforce"): return (True if self.polowa == self.polowb else False)
+		if (self.spos=="bruteforcebyreversing"): return (True if self.fos == self.fos[::-1] else False)
+		elif (self.spos=="bruteforcebyhalves"): return (True if self.polowa == self.polowb else False)
 	def printsingle(self,wspaceslen,yrformlen=7):
 		import re
 		yrformat = (re.sub(r'Q',str(int(yrformlen)),r"{:Qd}")).format(self.yr)
