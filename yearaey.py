@@ -25,7 +25,7 @@ defspos = "bruteforcebyreversing"  # default algorithm
 
 from sys import argv
 import argparse
-argh = argparse.ArgumentParser(add_help="Program for finding palindromes in a specified range in a specified positional numeral system by the radix (from 2 to 36)")
+argh = argparse.ArgumentParser(description="Program for finding palindromes in a specified range in a specified positional numeral system by the radix (from 2 to 36)")
 argh.add_argument('-b','--baseposnumsys',type=int,choices=range(2,37),default=2,help="Choose base positional numeral system (by radix). [min: 2 max: 36] [default: 2 (binary)]")
 argg = argh.add_argument_group('OUTPUT TYPES (you can choose more than one)')
 argg.add_argument('-t','--printingtrue',action='store_true',help="Prints binary palindromes as they are being found")
