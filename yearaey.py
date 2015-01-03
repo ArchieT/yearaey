@@ -28,7 +28,7 @@ argg.add_argument('-l','--list',action='store_true',help="At the end, outputs a 
 argg.add_argument('-d','--dict',action='store_true',help="At the end, outputs a Python dict with keys for each checked number and boolean values")
 argg.add_argument('-g','--debug',action='store_true',help="Show how the analysis runs")
 argga = argh.add_argument_group('=>singleprint parameters (for printingtrue and printingfalse)')
-argga.add_argument('-w','--binstrwspacelen',type=int,help="Lenght of the binary number string with spaces (column width)",default=14)
+argga.add_argument('-w','--binstrwspacelen',type=int,help="Lenght of the binary number string with spaces (column width) [0=>auto] [default: 0]",default=0)
 argj = argh.add_argument_group('INPUT')
 argj.add_argument('-s','--startyear',type=int,help="Start number (inclusively)",default=defsy)
 argj.add_argument('-e','--endyear',type=int,help="End number (inclusively)",default=defey)
