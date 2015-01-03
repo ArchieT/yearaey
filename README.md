@@ -37,9 +37,9 @@ OUTPUT TYPES (you can choose more than one):
 
 INPUT:
   -s STARTYEAR, --startyear STARTYEAR
-                        Start number (inclusively)
+                        Start number (inclusively) (default: 2015)
   -e ENDYEAR, --endyear ENDYEAR
-                        End number (inclusively)
+                        End number (inclusively) (default: 3015)
 
 PROCESSING:
   -r, --bruteforcebyreversing
