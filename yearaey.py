@@ -15,26 +15,39 @@ Napisz program (w dowolnym języku programowania) który znajdzie wszystkie taki
 # config:
 defsy = 2015
 defey = 3015
+defspos = "divisibility"
 
 from sys import argv
 import argparse
 argh = argparse.ArgumentParser()
-argg = argh.add_argument_group('OUTPUT types (you can choose more than one)')
-argg.add_argument('-t','--printingtrue',action='store_true',help="Prints binary palyndomes as they are being found")
-argg.add_argument('-f','--printingfalse',action='store_true',help="Prints what is found to not to be a binary palyndrome as it is being checked")
+argg = argh.add_argument_group('OUTPUT TYPES (you can choose more than one)')
+argg.add_argument('-t','--printingtrue',action='store_true',help="Prints binary palindromes as they are being found")
+argg.add_argument('-f','--printingfalse',action='store_true',help="Prints what is found to not to be a binary palindrome as it is being checked")
 argg.add_argument('-l','--list',action='store_true',help="At the end, outputs a Python list containing decimal ints which are binary palindromes")
 argg.add_argument('-d','--dict',action='store_true',help="At the end, outputs a Python dict with keys for each checked number and boolean values")
-argg.add_argument('-b','--debug',action='store_true',help="Show how the analysis runs")
-argga = argg.add_argument_group('singleprint parameters (for printingtrue and printingfalse)')
-argga.add_argument('-w','--binarystringwithspacelength',type=int,help="Lenght of the binary string wth spaces (column width)",default=14)
+argg.add_argument('-g','--debug',action='store_true',help="Show how the analysis runs")
+argga = argh.add_argument_group('=>singleprint parameters (for printingtrue and printingfalse)')
+argga.add_argument('-w','--binstrwspacelen',type=int,help="Lenght of the binary number string with spaces (column width)",default=14)
 argj = argh.add_argument_group('INPUT')
 argj.add_argument('-s','--startyear',type=int,help="Start number (inclusively)",default=defsy)
 argj.add_argument('-e','--endyear',type=int,help="End number (inclusively)",default=defey)
+argk = argh.add_argument_group('PROCESSING')
+argkk = argk.add_mutually_exclusive_group()
+argkk.add_argument('-z','--bydivisibility',action='store_true',help="[default] Use the divisibility-checking algorithm")
+argkk.add_argument('-r','--bruteforce',action='store_true',help="Use the brute-force algorithm")
+argkj = argh.add_argument_group('DEBUG OPTIONS')
+argkj.add_argument('-m','--timing',action='store_true',help="Show timing")
 parmetry = vars(argh.parse_args())
 
 if not(parmetry['printingtrue'] or parmetry['printingfalse'] or parmetry['list'] or parmetry['dict'] or parmetry['debug']):
 	print "The results won't be displayed."
 	print 'Look for output types in "%s --help"' % argv[0]
+
+if parmetry['timing']:
+	import time
+	start_time = time.time()
+
+spos = "divisibility" if parmetry['bydivisibility'] else ("bruteforce" if parmetry['bruteforce'] else defspos)
 
 sy = parmetry['startyear']
 ey = parmetry['endyear']
@@ -45,7 +58,8 @@ a.checkem(
 	pt=(True if parmetry['printingtrue'] else False),
 	pf=(True if parmetry['printingfalse'] else False),
 	db=(True if parmetry['debug'] else False),
-	wsl=parmetry['binarystringwithspacelength']
+	sposob=spos,
+	wsl=parmetry['binstrwspacelen']
 )
 
 if parmetry['list'] or parmetry['dict']: bulijan = a.outbulijan
@@ -57,3 +71,5 @@ if parmetry['list']:
 	print tecosa
 
 if parmetry['dict']: print bulijan
+
+if parmetry['timing']: print("-- %s seconds --" % float(float(time.time())-float(start_time)))
