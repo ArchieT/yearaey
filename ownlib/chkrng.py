@@ -21,7 +21,6 @@ class chkrng:
 			bulijan[i] = b
 			if pt and b: c.printsingle(wsl)
 			if pf and not b: c.printsingle(wsl)
-			#print c.polowyjoined, b, c.plwni
 
 		self.bulijan = bulijan
 
