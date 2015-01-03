@@ -32,6 +32,7 @@ class chksngl:
 				raise ValueError
 			self.polowa = polowa
 			self.polowb = polowb[::-1]
+	@staticmethod
 	def makefos(yr,base):
 		if base==2 or base==8 or base==16:
 			fs = "{0:b}" if base==2 else "{0:o}" if base==8 else "{0:x}" if base==16 else None
@@ -58,8 +59,8 @@ class chksngl:
 	def polowyjoined(self): return {'a':''.join(self.polowa),'b':''.join(self.polowb)}
 	@property
 	def isit(self):
-		if (self.spos=="bruteforcebyreversing"): return (True if self.fos == self.fos[::-1] else False)
-		elif (self.spos=="bruteforcebyhalves"): return (True if self.polowa == self.polowb else False)
+		if self.spos=="bruteforcebyreversing": return True if self.fos == self.fos[::-1] else False
+		elif self.spos=="bruteforcebyhalves": return True if self.polowa == self.polowb else False
 	def printsingle(self,wspaceslen,yrformlen=7):
 		import re
 		yrformat = (re.sub(r'Q',str(int(yrformlen)),r"{:Qd}")).format(self.yr)
