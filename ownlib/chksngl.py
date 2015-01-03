@@ -4,7 +4,7 @@ class chksngl:
 	def __init__(self,yr):
 		fs = "{0:b}"
 		self.yr = yr
-		fos = fs.format(i)
+		fos = fs.format(yr)
 		fo = list(fos)
 		print fos
 		lfo = len(fo)

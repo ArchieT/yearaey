@@ -19,8 +19,14 @@ sy = 2015
 ey = 3015
 
 from ownlib.chkrng import chkrng
-a = chkrng(sy,ey)
 
+a = chkrng(sy, ey)
+a.checkem()
+bulijan = a.outbulijan()
+
+tecosa = []
+for bulintidx in range(sy, ey + 1):
+	if bulijan[bulintidx]: tecosa.append(bulintidx)
 
 print tecosa
 print bulijan

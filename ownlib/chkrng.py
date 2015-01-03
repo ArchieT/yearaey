@@ -4,6 +4,9 @@ class chkrng:
 	def __init__(self,sy,ey):
 		if not (isinstance(sy,int) and isinstance(ey,int)):
 			raise ValueError
+		else:
+			self.sy = sy
+			self.ey = ey
 	def checkem(self):
 		sy = self.sy
 		ey = self.ey
@@ -16,4 +19,9 @@ class chkrng:
 			c = chksngl(i)
 			b = c.isit()
 			bulijan[i] = b
-			print c.polowy(), b, c.plwni()
+			print c.polowy(), b, c.plwni
+
+		self.bulijan = bulijan
+
+	def outbulijan(self):
+		return self.bulijan
