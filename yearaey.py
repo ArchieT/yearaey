@@ -20,6 +20,7 @@ defspos = "bruteforcebyreversing"
 from sys import argv
 import argparse
 argh = argparse.ArgumentParser()
+argh.add_argument('-b','--baseposnumsys',type=int,choices=range(2,37),default=2,help="Choose base positional numeral system (by radix). Default: 2 (binary)")
 argg = argh.add_argument_group('OUTPUT TYPES (you can choose more than one)')
 argg.add_argument('-t','--printingtrue',action='store_true',help="Prints binary palindromes as they are being found")
 argg.add_argument('-f','--printingfalse',action='store_true',help="Prints what is found to not to be a binary palindrome as it is being checked")
@@ -55,6 +56,7 @@ ey = parmetry['endyear']
 from ownlib.chkrng import chkrng
 a = chkrng(sy, ey)
 a.checkem(
+	base=parmetry['baseposnumsys'],
 	pt=(True if parmetry['printingtrue'] else False),
 	pf=(True if parmetry['printingfalse'] else False),
 	db=(True if parmetry['debug'] else False),

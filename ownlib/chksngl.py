@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 __author__ = 'ArchieT'
 class chksngl:
-	def __init__(self,yr,spos,db):
+	def __init__(self,yr,spos,db,base):
 		self.yr = yr
 		self.spos = spos
-		fs = "{0:b}"
-		fos = fs.format(yr)
+		fos = self.makefos(yr,base)
 		self.fos = fos
 		if spos=="bruteforcebyhalves" or db:
 			#if yr==2991: print qwer # debug: crashing
@@ -33,7 +32,26 @@ class chksngl:
 				raise ValueError
 			self.polowa = polowa
 			self.polowb = polowb[::-1]
-
+	def makefos(yr,base):
+		if base==2 or base==8 or base==16:
+			fs = "{0:b}" if base==2 else "{0:o}" if base==8 else "{0:x}" if base==16 else None
+			fos = fs.format(yr)
+		elif base==10:
+			fos = str(yr)
+		elif type(base)==int and base<36 or base==36:
+			alphabet='0123456789abcdefghijklmnopqrstuvwxyz'
+			ac = alphabet[:base]
+			if not isinstance(yr,(int,long)):
+				raise TypeError('Number must be an integer')
+			out = ''
+			if 0 <= yr < base:
+				return ac[yr]
+			num=yr
+			while num!=0:
+				num,ij=divmod(num,base)
+				out=ac[ij]+out
+			fos = out
+		return fos
 	@property
 	def polowy(self): return {'a':self.polowa,'b':self.polowb}
 	@property
