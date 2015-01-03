@@ -7,7 +7,7 @@ class chkrng:
 		else:
 			self.sy = sy
 			self.ey = ey
-	def checkem(self,pt=True,pf=False,wsl=16):
+	def checkem(self,pt=True,pf=False,wsl=14):
 		sy = self.sy
 		ey = self.ey
 
