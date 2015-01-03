@@ -24,7 +24,7 @@ argg.add_argument('-f','--printingfalse',action='store_true',help="Prints what i
 argg.add_argument('-l','--list',action='store_true',help="At the end, outputs a Python list containing decimal ints which are binary palindromes")
 argg.add_argument('-d','--dict',action='store_true',help="At the end, outputs a Python dict with keys for each checked number and boolean values")
 argga = argg.add_argument_group('singleprint parameters (for printingtrue and printingfalse)')
-argga.add_argument('-w','--binarystringwithspacelength',type=int,help="Lenght of the binary string wth spaces (column width)",default=8)
+argga.add_argument('-w','--binarystringwithspacelength',type=int,help="Lenght of the binary string wth spaces (column width)",default=16)
 argj = argh.add_argument_group('INPUT')
 argj.add_argument('-s','--startyear',type=int,help="Start number (inclusively)",default=defsy)
 argj.add_argument('-e','--endyear',type=int,help="End number (inclusively)",default=defey)
