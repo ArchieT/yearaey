@@ -3,9 +3,14 @@ yearaey
 
 Program for finding palindromes in a specified range in a specified positional numeral system by the radix (from 2 to 36).
 
-It was a school homework, done at night Jan 2-3, 2015.
- 
- 
+It was a school homework, done at night Jan 2-3, 2015. 
+
+Because of the malefficiency of the calculations-based alghorithms, the program gives supports only the following brute-force alghorithms:
+ * brute-force by reversing — it just reverses the string and checks if it is still the same string
+ * brute-force by halving — it divides the string into two strings, reverses the second one and checks whether they're equal. If the lenght of the string is odd, the number in the center is not considered.
+
+The program doesn't consider whether a number is a palindrome beginning with zeros — so there, all of the palindromes will actually be indivisible by the radix.
+
  
 ###Help
 ```
@@ -49,6 +54,9 @@ PROCESSING:
                         [default] Use the brute-force reversing algorithm
   -p, --bruteforcebyhalves
                         Use the brute-force halving algorithm
+
+PROCESSING SETTINGS:
+  [it will be possible to check for possibility of being a palindrome starting with zeros, for example 20(dec)=10100(bin)=0010100(bin), coming soon]
 
 DEBUG OPTIONS:
   -m, --timing          Show timing
