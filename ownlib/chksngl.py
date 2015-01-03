@@ -16,17 +16,17 @@ class chksngl:
 			self.plwni = plwni
 			if lfo % 2 == 0:
 				polowa = []
-				for i in range(0,int(plwni)):
+				for i in xrange(0,int(plwni)):
 					polowa.append(fo[i])
 				polowb = []
-				for i in range(int(plwni),lfo):
+				for i in xrange(int(plwni),lfo):
 					polowb.append(fo[i])
 			elif (lfo-1) % 2 == 0:
 				polowa = []
-				for i in range(0,int(plwni-0.5)):
+				for i in xrange(0,int(plwni-0.5)):
 					polowa.append(fo[i])
 				polowb = []
-				for i in range(lfo-1,int(plwni-0.5),-1):
+				for i in xrange(lfo-1,int(plwni-0.5),-1):
 					polowb.append(fo[i])
 				#polowb = polowb[::-1]
 			else:

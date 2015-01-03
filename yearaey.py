@@ -66,7 +66,7 @@ if parmetry['list'] or parmetry['dict']: bulijan = a.outbulijan
 
 if parmetry['list']:
 	tecosa = []
-	for bulintidx in range(sy, ey + 1):
+	for bulintidx in ((range(sy, ey + 1)) if not (ey>999999 or ey-sy>800000) else (xrange(sy, ey + 1))):
 		if bulijan[bulintidx]: tecosa.append(bulintidx)
 	print tecosa
 
