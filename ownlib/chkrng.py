@@ -7,7 +7,7 @@ class chkrng:
 		else:
 			self.sy = sy
 			self.ey = ey
-	def checkem(self):
+	def checkem(self,pt=True,pf=False,wsl=8):
 		sy = self.sy
 		ey = self.ey
 
@@ -15,13 +15,16 @@ class chkrng:
 
 		from ownlib.chksngl import chksngl
 		for i in range(sy,ey+1):
-			print i
+			#print i
 			c = chksngl(i)
-			b = c.isit()
+			b = c.isit
 			bulijan[i] = b
-			print c.polowy(), b, c.plwni
+			if pt and b: c.printsingle(wsl)
+			if pf and not b: c.printsingle(wsl)
+			#print c.polowyjoined, b, c.plwni
 
 		self.bulijan = bulijan
 
+	@property
 	def outbulijan(self):
 		return self.bulijan
