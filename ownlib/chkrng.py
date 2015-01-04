@@ -7,7 +7,7 @@ class chkrng:
 		else:
 			self.sy = sy
 			self.ey = ey
-	def checkem(self,base=2,pt=True,pf=False,db=False,sposob='bruteforcebyreversing',wsl=None):
+	def checkem(self,base=2,zeros=False,pt=True,pf=False,db=False,sposob='bruteforcebyreversing',wsl=None):
 		sy = self.sy
 		ey = self.ey
 
@@ -22,11 +22,11 @@ class chkrng:
 				while num!=0:
 					num,asd=divmod(num,base)
 					lco+=1
-				wsla = lco+2
+				wsla = (2*lco)+1 if zeros else lco+2
 		elif isinstance(wsl,int) and wsl>0: wsla=wsl
 		for i in range(sy,ey+1):
 			#print i
-			c = chksngl(i,spos=sposob,db=db,base=base)
+			c = chksngl(i,spos=sposob,db=db,base=base,zer=zeros)
 			b = c.isit
 			bulijan[i] = b
 			if pt and b and not db: print c.printsingle(wsla,yrformlen=len(str(ey)))

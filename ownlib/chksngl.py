@@ -1,37 +1,14 @@
 # -*- coding: utf-8 -*-
 __author__ = 'ArchieT'
 class chksngl:
-	def __init__(self,yr,spos,db,base):
+	def __init__(self,yr,spos,db,base,zer):
 		self.yr = yr
+		self.zer = zer
 		self.spos = spos
 		fos = self.makefos(yr,base)
 		self.fos = fos
 		if spos=="bruteforcebyhalves" or db:
-			#if yr==2991: print qwer # debug: crashing
-			fo = list(fos)
-			#print fos
-			lfo = len(fo)
-			plwni = float(lfo)/float(2)
-			self.plwni = plwni
-			if lfo % 2 == 0:
-				polowa = []
-				for i in xrange(0,int(plwni)):
-					polowa.append(fo[i])
-				polowb = []
-				for i in xrange(int(plwni),lfo):
-					polowb.append(fo[i])
-			elif (lfo-1) % 2 == 0:
-				polowa = []
-				for i in xrange(0,int(plwni-0.5)):
-					polowa.append(fo[i])
-				polowb = []
-				for i in xrange(lfo-1,int(plwni-0.5),-1):
-					polowb.append(fo[i])
-				#polowb = polowb[::-1]
-			else:
-				raise ValueError
-			self.polowa = polowa
-			self.polowb = polowb[::-1]
+			self.polowienie(foss=fos)
 	@staticmethod
 	def makefos(yr,base):
 		if base==2 or base==8 or base==16:
@@ -53,14 +30,68 @@ class chksngl:
 				out=ac[ij]+out
 			fos = out
 		return fos
+	def polowienie(self,foss):
+		# if yr==2991: print qwer # debug: crashing
+		fo = list(foss)
+		#print fos
+		lfo = len(fo)
+		plwni = float(lfo) / float(2)
+		self.plwni = plwni
+		if lfo % 2 == 0:
+			polowa = []
+			for i in range(0, int(plwni)):
+				polowa.append(fo[i])
+			polowb = []
+			for i in range(int(plwni), lfo):
+				polowb.append(fo[i])
+		elif (lfo - 1) % 2 == 0:
+			polowa = []
+			for i in range(0, int(plwni - 0.5)):
+				polowa.append(fo[i])
+			polowb = []
+			for i in range(lfo - 1, int(plwni - 0.5), -1):
+				polowb.append(fo[i])
+			#polowb = polowb[::-1]
+		else:
+			raise ValueError
+		self.polowa = polowa
+		self.polowb = polowb[::-1]
 	@property
 	def polowy(self): return {'a':self.polowa,'b':self.polowb}
 	@property
 	def polowyjoined(self): return {'a':''.join(self.polowa),'b':''.join(self.polowb)}
 	@property
 	def isit(self):
-		if self.spos=="bruteforcebyreversing": return True if self.fos == self.fos[::-1] else False
-		elif self.spos=="bruteforcebyhalves": return True if self.polowa == self.polowb else False
+		if self.spos=="bruteforcebyreversing":
+			a = True if self.fos == self.fos[::-1] else False
+			if self.zer: self.ilezer = 0
+			if a or not self.zer: return a
+			else: fos = self.fos
+			c = 0
+			while not a:
+				c+=1
+				if fos[-c]=='0': fos='0'+fos
+				a = True if fos == fos[::-1] else False
+				if a:
+					self.ilezer = c
+					return True
+				elif c+1>float(len(self.fos))/float(2): return False
+		elif self.spos=="bruteforcebyhalves":
+			a = True if self.polowa == self.polowb else False
+			if self.zer: self.ilezer = 0
+			if a or not self.zer: return a
+			else:
+				pa = self.polowa
+				pb = self.polowb
+			c=0
+			while not a:
+				c+=1
+				if pb[c]=='0': pb = pa.pop()+pb
+				a = True if pa==pb else False
+				if a:
+					self.ilezer = c
+					return True
+				elif c+1>len(self.polowb): return False
 	def printsingle(self,wspaceslen,yrformlen=7):
 		import re
 		yrformat = (re.sub(r'Q',str(int(yrformlen)),r"{:Qd}")).format(self.yr)
@@ -75,5 +106,6 @@ class chksngl:
 				a = (' '*int(halfbrakuje-0.5))
 				b = a+' '
 			return a+cojest+b
-		binarprint = self.fos if wspaceslen<len(self.fos) else spaporbp(wspaceslen,self.fos)
+		fose = ('0'*self.ilezer)+self.fos if self.zer else self.fos
+		binarprint = fose if wspaceslen<len(fose) else spaporbp(wspaceslen,fose)
 		return " %s  | %s |  %s " % (yrformat,binarprint,self.isit)
