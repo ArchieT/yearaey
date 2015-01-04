@@ -9,7 +9,8 @@ Because of the malefficiency of the calculations-based alghorithms, the program 
  * brute-force by reversing — it just reverses the string and checks if it is still the same string
  * brute-force by halving — it divides the string into two strings, reverses the second one and checks whether they're equal. If the lenght of the string is odd, the number in the center is not considered.
 
-The program doesn't consider whether a number is a palindrome beginning with zeros — so there, all of the palindromes will actually be indivisible by the radix.
+The program can also check whether a number is a palindrome beginning with zeros.
+If it is set to not to, it doesn't check numbers which are divisible by the radix.
 
  
 ###Help
