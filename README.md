@@ -17,7 +17,7 @@ The program doesn't consider whether a number is a palindrome beginning with zer
 usage: ./yearaey.py [-h]
                   [-b {2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36}]
                   [-t] [-f] [-l] [-d] [-g] [-w BINSTRWSPACELEN] [-s STARTYEAR]
-                  [-e ENDYEAR] [-r | -p] [-m]
+                  [-e ENDYEAR] [-r | -p] [-z] [-m]
 
 Program for finding palindromes in a specified range in a specified positional
 numeral system by the radix (from 2 to 36)
@@ -55,8 +55,10 @@ PROCESSING:
   -p, --bruteforcebyhalves
                         Use the brute-force halving algorithm
 
-PROCESSING SETTINGS:
-  [it will be possible to check for possibility of being a palindrome starting with zeros, for example 20(dec)=10100(bin)=0010100(bin), coming soon]
+PROCESSING OPTIONS:
+  -z, --withzeros       Check for possibility of being a palindrome starting
+                        with zeros, for example
+                        20(dec)=10100(bin)=0010100(bin) [default: no]
 
 DEBUG OPTIONS:
   -m, --timing          Show timing
