@@ -3,6 +3,7 @@ __author__ = 'ArchieT'
 class chksngl:
 	def __init__(self,yr,spos,db,base,zer):
 		self.yr = yr
+		self.niejest = True if yr % base == 0 and not zer else False
 		self.zer = zer
 		self.spos = spos
 		fos = self.makefos(yr,base)
@@ -62,6 +63,7 @@ class chksngl:
 	def polowyjoined(self): return {'a':''.join(self.polowa),'b':''.join(self.polowb)}
 	@property
 	def isit(self):
+		if self.niejest: return False
 		if self.spos=="bruteforcebyreversing":
 			a = True if self.fos == self.fos[::-1] else False
 			if self.zer: self.ilezer = 0

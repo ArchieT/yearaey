@@ -5,7 +5,7 @@ Program for finding palindromes in a specified range in a specified positional n
 
 It was a school homework, done at night Jan 2-3, 2015. 
 
-Because of the malefficiency of the calculations-based alghorithms, the program gives supports only the following brute-force alghorithms:
+Because of the malefficiency of the calculations-based alghorithms, the program supports only the following brute-force alghorithms:
  * brute-force by reversing — it just reverses the string and checks if it is still the same string
  * brute-force by halving — it divides the string into two strings, reverses the second one and checks whether they're equal. If the lenght of the string is odd, the number in the center is not considered.
 
